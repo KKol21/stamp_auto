@@ -47,11 +47,12 @@ def replace_fixed_text(file_bytes):
 
 # Streamlit UI
 st.title("PDF Footer Replacer")
-st.caption("Automatically replaces the Boliden footer block with updated Norwegian address.")
+st.caption("Automatically replaces the Boliden footer block with updated Odda address.")
 
 uploaded_file = st.file_uploader("Upload PDF", type="pdf")
+output_filename = f"{uploaded_file.name.rsplit('.', 1)[0]}_final.pdf"
 
 if uploaded_file:
     result = replace_fixed_text(uploaded_file.read())
     st.success("✅ Replacement complete!")
-    st.download_button("Download Modified PDF", result.getvalue(), file_name="output.pdf")
+    st.download_button("Download Modified PDF", result.getvalue(), file_name=output_filename)
