@@ -3,9 +3,10 @@ import fitz  # PyMuPDF
 import io
 
 # === PRESET TEXT TO WRITE ===
-PRESET_TEXT = "Boliden Commercial AB/NO \n"
-              "Eitrheimsneset 1, 5750 Odda, Norge \n"
-              "VAT NO987485752MVA"
+PRESET_TEXT = """Boliden Commercial AB/NO
+Eitrheimsneset 1, 5750 Odda, Norge
+VAT NO987485752MVA"""
+
 
 def edit_lower_left(pdf_bytes, new_text):
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
