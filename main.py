@@ -20,8 +20,9 @@ def edit_lower_left(pdf_bytes, new_text):
         
         erase_rect = fitz.Rect(margin_x, rect.height - margin_y - height, margin_x + width, rect.height - margin_y)
         
-        # Whiten out the area
-        page.draw_rect(erase_rect, color=(1, 1, 1), fill=(1, 1, 1))
+        # Redact old stamp
+        page.add_redact_annot(rect, fill=(1, 1, 1))
+        page.apply_redactions()
         
         # Overwrite with new text
         page.insert_textbox(
