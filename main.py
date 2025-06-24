@@ -18,7 +18,7 @@ def edit_lower_left(pdf_bytes, new_text):
         width = 150
         height = 50
         
-        erase_rect = fitz.Rect(margin_x, rect.height - margin_y - height, margin_x + width, rect.height - margin_y)
+        erase_rect = fitz.Rect(margin_x, margin_y - height, margin_x + width, margin_y)
         
         # Redact old stamp
         page.add_redact_annot(rect, fill=(1, 1, 1))
